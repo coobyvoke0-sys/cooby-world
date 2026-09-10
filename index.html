@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LoveChat ❤️</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="auth" class="auth">
+  <div class="card">
+    <div class="logo">❤️</div>
+    <h1>LoveChat</h1>
+    <p class="muted">A private place for two.</p>
+    <div class="tabs"><button id="loginTab" class="active">Login</button><button id="registerTab">Create</button></div>
+    <form id="authForm">
+      <input id="username" placeholder="Username" autocomplete="username" required>
+      <input id="password" placeholder="Password (8+ characters)" type="password" autocomplete="current-password" required>
+      <input id="invite" placeholder="Private couple code" class="registerOnly" style="display:none">
+      <button class="primary" id="authBtn">Enter our chat ❤️</button>
+    </form>
+    <p id="authError" class="error"></p>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="brand"><span>❤️</span><div><b>LoveChat</b><small>Just us two</small></div></div>
+    <div class="profile"><div class="avatar">♥</div><div><b id="me"></b><span id="status">Connecting…</span></div></div>
+    <div class="tip">🔒 Your messages are kept on your private server. Calls use peer-to-peer WebRTC.</div>
+    <button id="logout" class="ghost">Log out</button>
+  </aside>
+
+  <main class="chat">
+    <header><div class="avatar big">♥</div><div><h2 id="partner">My Love</h2><span id="partnerStatus">Private conversation</span></div>
+      <div class="callBtns"><button id="voiceBtn" title="Voice call">📞</button><button id="videoBtn" title="Video call">🎥</button></div>
+    </header>
+    <section id="messages" class="messages"></section>
+    <form id="sendForm" class="composer"><input id="messageInput" placeholder="Write something sweet…" maxlength="2000" autocomplete="off"><button>➤</button></form>
+  </main>
+</div>
+
+<div id="call" class="call hidden">
+  <div class="callTop"><b id="callTitle">Calling…</b><button id="endCall">✕</button></div>
+  <video id="remoteVideo" autoplay playsinline></video>
+  <video id="localVideo" autoplay muted playsinline></video>
+  <div id="callHint">Connecting…</div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
